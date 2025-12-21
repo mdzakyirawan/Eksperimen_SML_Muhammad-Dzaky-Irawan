@@ -51,7 +51,7 @@ def save_data(df, path):
 
 if __name__ == "__main__":
     raw_path = "../maternal_health_risk_dataset_raw.csv"
-    output_path = "./dataset_preprocessed.csv"
+    output_path = "dataset_preprocessed.csv"
 
     df_raw = load_data(raw_path)
     df_clean = preprocessing(df_raw)
