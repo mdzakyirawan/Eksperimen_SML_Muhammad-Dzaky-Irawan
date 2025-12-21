@@ -1,1 +1,0 @@
-# Eksperimen_SML_Muhammad-Dzaky-Irawan
