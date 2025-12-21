@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+    paths-ignore:
+      - 'preprocessing/dataset_preprocessed.csv'
 
 jobs:
   preprocessing:
@@ -34,4 +35,13 @@ jobs:
         with:
           name: preprocessed-dataset
           path: preprocessing/dataset_preprocessed.csv
+
+      - name: Commit preprocessed dataset
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add preprocessing/dataset_preprocessed.csv
+          git commit -m "Update preprocessed dataset [CI]" || echo "No changes to commit"
+          git push
+
 
