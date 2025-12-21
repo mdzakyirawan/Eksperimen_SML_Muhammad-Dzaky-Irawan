@@ -50,11 +50,17 @@ def save_data(df, path):
     df.to_csv(path, index=False)
 
 if __name__ == "__main__":
-    raw_path = "../maternal_health_risk_dataset_raw.csv"
-    output_path = "dataset_preprocessed.csv"
+    import os
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+    raw_path = os.path.join(BASE_DIR, "..", "maternal_health_risk_dataset_raw.csv")
+    output_path = os.path.join(BASE_DIR, "dataset_preprocessed.csv")
 
     df_raw = load_data(raw_path)
     df_clean = preprocessing(df_raw)
     save_data(df_clean, output_path)
 
-    print("Preprocessing otomatis selesai. Dataset siap dilatih.")
+    print("Preprocessing otomatis selesai.")
+    print("Output saved at:", output_path)
+
